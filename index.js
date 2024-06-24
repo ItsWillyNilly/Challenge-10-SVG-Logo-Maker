@@ -40,3 +40,34 @@ function getUserInput() {
         }
     });
 }
+
+function writeToFile(fileName, answers) {
+    let shape;
+    if(answers.shape === 'Circle' || answers.shape === 'circle') {
+        shape = new Circle;
+
+    } else if (answers.shape === 'Triangle' || answers.shape === 'triangle') {
+        shape = new Triangle;
+    } else if (answers.shape === 'Square' || answers.shape === 'square') {
+        shape = new Square;
+    }
+
+    shape.setColor(answers.shapeColor);
+
+        const svg = `
+        <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+            ${shape.render()}
+            <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
+        </svg>
+    `;
+
+    fs.writeFile(fileName, svg, function(err){
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('Logo generated successfully.');
+        }
+    });
+}
+
+getUserInput();
