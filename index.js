@@ -46,11 +46,11 @@ function writeToFile(fileName, answers) {
     
     // creates the shape based on user input
     let shape;
-    if(answers.shape === 'Circle' || answers.shape === 'circle') {
+    if(answers.shape === 'Circle') {
         shape = new Circle;
-    } else if (answers.shape === 'Triangle' || answers.shape === 'triangle') {
+    } else if (answers.shape === 'Triangle') {
         shape = new Triangle;
-    } else if (answers.shape === 'Square' || answers.shape === 'square') {
+    } else if (answers.shape === 'Square') {
         shape = new Square;
     }
 
